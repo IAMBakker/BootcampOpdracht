@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  flask-ws:
+    container_name: flask-motivation-ws
+    build: https://github.com/IAMBakker/bootcamp-motivation-ws.git
+    ports:
+      - '5000:5000'
+  exercise-container:
+    container_name: exercise-one
+    build: .
+    depends_on:
+      - flask-ws
+    external_links: 
+      - flask-ws
